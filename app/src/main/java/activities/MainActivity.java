@@ -1,17 +1,22 @@
-package com.example.alexandergodeke.faltung;
+package activities;
 
-import android.graphics.Color;
+
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alexandergodeke.signals.R;
+import com.example.alexandergodeke.faltung.Signal;
+
+/**
+ * @autohr Alexander Gödeke
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button signal1button = null;
@@ -26,11 +31,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        signal1view = (Signal) this.findViewById(R.id.signal1view);
-        signal2view = (Signal) this.findViewById(R.id.signal2view);
+        //signal1view = (Signal) this.findViewById(R.id.signal1view);
+        //signal2view = (Signal) this.findViewById(R.id.signal2view);
 
         signal1label = (TextView) this.findViewById(R.id.signal1label);
         signal2label = (TextView) this.findViewById(R.id.signal2label);
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         gobutton = (Button) this.findViewById(R.id.gobutton);
 
 
-        gobutton.setTextColor(Color.red(1));
+        //gobutton.setTextColor(Color.red(1));
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -50,13 +53,49 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+
+        /*GraphView graph = (GraphView) findViewById(R.id.graph);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(0, 1),
+                new DataPoint(1, 5),
+                new DataPoint(2, 3),
+                new DataPoint(3, 2),
+                new DataPoint(4, 6)
+        });
+        graph.addSeries(series);*/
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        signal1button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent nextScreen = new Intent(getApplicationContext(), AudioSignalActivity.class);
+                startActivity(nextScreen);
+            }
+        });
+
+        signal2button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent nextScreen = new Intent(getApplicationContext(), SignalActivity.class);
+                startActivity(nextScreen);
+            }
+        });
+
+        gobutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent nextScreen = new Intent(getApplicationContext(), AudioSignalActivity.class);
+                startActivity(nextScreen);
+            }
+        });
+
+
         return true;
+
+
     }
 
     @Override
