@@ -1,4 +1,4 @@
-package com.example.alexandergodeke.faltung;
+package com.example.alexandergodeke.signals;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

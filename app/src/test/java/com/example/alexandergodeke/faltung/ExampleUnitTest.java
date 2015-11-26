@@ -1,4 +1,4 @@
-package com.example.alexandergodeke.faltung;
+package com.example.alexandergodeke.signals;
 
 import org.junit.Test;
 
